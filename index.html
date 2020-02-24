@@ -1,0 +1,231 @@
+<html>
+  <head>
+<!----Button calls this function to generate a product view for GA-->
+<script>
+function ibmproductView() {
+            ga("ec:addProduct", {
+                "id": "B06XSVGYJ8",
+                "name": "Poison Look What the Cat Dragged In",
+                "price": "19.95",
+                "brand": "Poison",
+                "category": "Hairbands",
+                "dimension1": "M",
+                "variant": "redish",
+                "quantity": "1"
+            });
+            ga("ec:setAction", "detail");
+            ga("send", "event", "detail view", "click", "productview");
+        }
+</script>
+<!----End Button calls this function to generate a product view for GA-->
+
+
+
+<!--No More Flicker-->
+<style> 
+      #scorpion {
+            opacity: 0;
+            }
+</style>
+<!--END No More Flicker
+
+<!---------------------------Step 1 ------------------------->
+<script type="text/javascript" src="https://commercelibs.ibm.com/common/ubxCapture.js"></script>
+<script> ubxCapture.setTenantID("WRTP","cw-506812115-OFkLU6sY");
+ubxCapture.setTenantID("GA","iSYGAAAAAABXlH4KieMe67T5SXDah8vp0QxZRxkxs12a-P-39KVdVg:US");
+</script>
+<script type="text/javascript"> ubxCapture.setID("591cfd7c-2da6-4e40-a9d8-8cb668592464"); </script>
+<!---------------------------End Step 1 --------------------->
+
+<!---------------------------Step 2 ------------------------->
+<script>var ubxEvents = [];</script> 
+<script defer type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+                i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }),
+                (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(
+            window,
+            document,
+            "script",
+            "https://www.google-analytics.com/analytics.js",
+            "ga"
+        );
+
+        ga("create", "UA-136575756-2", "auto");
+        ga("require", "ec");
+        var identifiersMapperArray = [], ubxInformation;
+        ga(function (tracker) {
+            var clientId = tracker.get('clientId');
+
+ /*This code snippet uses clientID as an example. You must decide the identifier and use the same. 
+Refer to the guidelines for adding array for UBX identifiers. */ 
+
+            identifiersMapperArray.push({ "name": "gaClientId", "value": clientId });
+        });
+        ga(function () {
+            var tracker = ga.getByName("t0");
+            var originalSendHitTask = tracker.get("sendHitTask");
+            tracker.set("sendHitTask", function (model) {
+                originalSendHitTask(model);
+                var payLoad = model.get("hitPayload");
+                console.log("model=" + JSON.stringify(model));
+                var hitType = model.get("hitType");
+                google_ubx.sendEventFromPayload(payLoad, identifiersMapperArray);
+            });
+        }); 
+
+    </script>
+<!--------------------------- End Step 2 -------------------->
+
+<!----------- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136575756-2"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'UA-136575756-2');
+  	ga('require','ec');
+	</script>
+<!--------End Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Hello World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body>
+
+
+<!---------------------------Step 3 ------------------------->
+  <script>
+window.addEventListener('load', function() {
+            if (ubxCapture) {
+                Object.keys(ubxCapture['enabledOfferings']['UBXWRTP']).forEach(
+                    (key, index) => {
+                        ubxInformation = {
+                            channelTenantId:
+                            ubxCapture['enabledOfferings']['UBXWRTP'][key].config
+                                .channelTenantID,
+                            authKey:
+                           ubxCapture['enabledOfferings']['UBXWRTP'][key].config.ubxAuthKey
+                        };
+                    }
+                );
+            }
+            try {
+                google_ubx.googleToUBXAddToCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXCartPurchaseEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXCartPurchaseItemEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXFormErrorEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXPageViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductRatingEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductReviewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXRemoveFromCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoCompletedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoLaunchedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoPausedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoPlayedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+            } catch (error) {
+                console.error(error); 
+            }
+            //ga('set', 'dimension1', ubxInformation.channelTenantId ); 
+            ga('set', 'dimension1', 'cw-506812115-OFkLU6sY'); //setting channeltennantid per Rashmi's advice
+            
+            ibm_ubx.registerCallback("WRTP", function (eventPayload) {
+                if(eventPayload) {
+                    ubxEvents.push(eventPayload);
+                }
+            });
+        });
+</script>
+<!---------------------------End Step 3 ------------------------->
+  
+ 
+  
+<!---------------------MPA zone configuration - rendering-------->
+<!--NEW RENDERING CODE FOR ONLINE ENGINE Personalization Library >= 1.0.0  per KC-->
+
+
+ <script type="text/javascript">
+        function init() {
+            const WRTP = wrtp.ole.JsWRTP.create();
+ 
+            function displayContent(contentId, domOutlet) {  
+                console.log('ContentId in HTML file:', contentId);
+                if (contentId == 'DCIDNF404') {
+                    //Add rendering logic code to display the default content
+                    domOutlet.innerHTML = "<p>You didn't meet my RTP Rule - No Soup for you!</p>";//comments
+                    domOutlet.style.opacity = 1;
+                } else {  
+                    //Add rendering logic code to display the personalized content
+                    domOutlet.innerHTML = contentId;
+                    domOutlet.style.opacity = 1;
+                }
+            }
+            function processContent(zoneId, outletId) {
+                const outletArea = WRTP.getZoneArea(outletId);                                
+                let contentId    = WRTP.getContentId(zoneId);
+                displayContent(contentId, outletArea); 
+              }
+            WRTP.onReady(()=>{
+                processContent("scorpion", "scorpion");
+
+            });
+        }
+	window.onload = init;
+    </script>
+
+
+
+<!---------------------End MPA zone configuration - rendering-------->
+
+
+    <table>
+      <tr>
+        <td style= "width:30%;">
+          <img class = "newappIcon" src="images/scorpion.png" alt="Smiley face">
+        </td>
+        <td>
+        <div id="scorpion">
+        <p>This should not display, either personalized or default content...which this is neither!</p>
+        </div>
+        </td>
+      </tr>
+    </table>
+    
+    
+    
+<!---------Adding a button to simulate a GA event-------------------->
+<div>
+    <ul style="list-style: none;">
+        <li>
+            <button onclick="ibmproductView()" id="123">View A Product</button>
+            <!--<button value="Refresh Page" onclick="wcaproductView(); window.location.reload();" id="123">View A Product</button>-->
+        </li>
+        <p></p>
+        <!--<li>
+            <button id="456">Click Me</button> <!--this button simply sends a click event, not tied to ga event
+        </li>-->
+    </ul>
+</div>
+<!---------End Adding a button to simulate a GA event----------------->
+    
+    <p><a href="bliz.html">Click here to go to my Bizzard page using Google Analytics &#128526;.</a></p>
+    <p><a href="gtm.html">Click here to go to my Sno Jet page using Google Tag Manager &#128543;.</a></p>
+    <p><a href="adobe.html">Click here to go to my Viking page using Adobe Analytics &#128552;.</a></p>
+  </body>
+
+</html>

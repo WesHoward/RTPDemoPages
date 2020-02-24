@@ -1,0 +1,386 @@
+<html>
+  <head>
+ <!--sample rendering code i want my product recommendations to be in a carousel-->
+ <link rel="stylesheet" href="https://my2.digitalexperience.ibm.com/2fec40e4-091c-40ca-b1df-d45cf19144da/wrtp/prod/Renderer.css" type="text/css"/><script type="text/javascript" src="https://my2.digitalexperience.ibm.com/2fec40e4-091c-40ca-b1df-d45cf19144da/wrtp/prod/Renderer.js"></script>
+ <!--End sample rendering code-->
+  
+<!----Buttons call these function to generate different product views for GA-->
+<script>
+function ibmproductView95() {
+            ga("ec:addProduct", {
+                "id": "BLZ9500",
+                "name": "Blizzard 9500",
+                "price": "1999.95",
+                "brand": "Ski-Doo",
+                "category": "Snowmobile",
+                "dimension1": "M",
+                "variant": "Yellow",
+                "quantity": "1"
+            });
+            ga("ec:setAction", "detail");
+            ga("send", "event", "detail view", "click", "productview");
+        }
+        
+    //Blizzard 9500 cart purchase...this one also sends the CartPurchaseItem which i don't really get, but i do see it in UBX capture.
+    function ibmcartPurchase9500() {
+        ga('ec:addProduct', {
+        	  "id": "BLZ9500",
+                "name": "Blizzard 9500",
+                "price": "1999.95",
+                "brand": "Ski-Doo",
+                "category": "Snowmobile",
+                "dimension1": "M",
+                "variant": "Yellow",
+                "quantity": "1"
+        });
+
+        ga('ec:setAction', 'purchase', {
+            'id': 'INVDOO1',
+            'affiliation': 'Google Store - Online',
+            'revenue': '1999.95',
+            'tax': '149.02',
+            'shipping': '120.99',
+            'coupon': 'WINTER2019'
+        });
+        ga('send', 'event', 'Ecommerce', 'ibmcartPurchase', 'purchase');
+    }
+        
+        function ibmproductView75() {
+            ga("ec:addProduct", {
+                "id": "BLZ7500",
+                "name": "Blizzard 7500",
+                "price": "1899.95",
+                "brand": "Ski-Doo",
+                "category": "Snowmobile",
+                "dimension1": "M",
+                "variant": "Yellow",
+                "quantity": "1"
+            });
+            ga("ec:setAction", "detail");
+            ga("send", "event", "detail view", "click", "productview");
+        }
+        
+        function ibmproductView55() {
+            ga("ec:addProduct", {
+                "id": "BLZ5500",
+                "name": "Blizzard 5500",
+                "price": "1799.95",
+                "brand": "Ski-Doo",
+                "category": "Snowmobile",
+                "dimension1": "M",
+                "variant": "Yellow",
+                "quantity": "1"
+            });
+            ga("ec:setAction", "detail");
+            ga("send", "event", "detail view", "click", "productview");
+        }
+</script>
+<!----End Button calls this function to generate a product view for GA-->
+
+<!--The following Step 1, Step 2 and Step3 are from the KC-->
+<!---------------------------Step 1 ------------------------->
+<script type="text/javascript" src="https://commercelibs.ibm.com/common/ubxCapture.js"></script>
+<script> ubxCapture.setTenantID("WRTP","cw-506812115-OFkLU6sY");
+ubxCapture.setTenantID("GA","iSYGAAAAAABXlH4KieMe67T5SXDah8vp0QxZRxkxs12a-P-39KVdVg:US");
+</script>
+<script type="text/javascript"> ubxCapture.setID("591cfd7c-2da6-4e40-a9d8-8cb668592464"); </script>
+<!---------------------------End Step 1 --------------------->
+
+
+
+
+<!---------------------------Step 2 ------------------------->
+<script>var ubxEvents = [];</script> 
+<script defer type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+                i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }),
+                (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(
+            window,
+            document,
+            "script",
+            "https://www.google-analytics.com/analytics.js",
+            "ga"
+        );
+
+        ga("create", "UA-136575756-2", "auto");
+        ga("require", "ec");
+        var identifiersMapperArray = [], ubxInformation;
+        ga(function (tracker) {
+            var clientId = tracker.get('clientId');
+
+ /*This code snippet uses clientID as an example. You must decide the identifier and use the same. 
+Refer to the guidelines for adding array for UBX identifiers. */ 
+
+            identifiersMapperArray.push({ "name": "gaClientId", "value": clientId });
+        });
+        ga(function () {
+            var tracker = ga.getByName("t0");
+            var originalSendHitTask = tracker.get("sendHitTask");
+            tracker.set("sendHitTask", function (model) {
+                originalSendHitTask(model);
+                var payLoad = model.get("hitPayload");
+                console.log("model=" + JSON.stringify(model));
+                var hitType = model.get("hitType");
+                google_ubx.sendEventFromPayload(payLoad, identifiersMapperArray);
+            });
+        }); 
+
+    </script>
+<!--------------------------- End Step 2 -------------------->
+
+<!----------- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136575756-2"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'UA-136575756-2');
+  	ga('require','ec');
+	</script>
+<!--------End Global site tag (gtag.js) - Google Analytics -->
+<!--This is from GOOGLE ANALYTICS, the Tracking Code-->
+
+    <title>Lance's Blizzard Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body>
+
+
+<!---------------------------Step 3 ------------------------->
+  <script>
+window.addEventListener('load', function() {
+            if (ubxCapture) {
+                Object.keys(ubxCapture['enabledOfferings']['UBXWRTP']).forEach(
+                    (key, index) => {
+                        ubxInformation = {
+                            channelTenantId:
+                            ubxCapture['enabledOfferings']['UBXWRTP'][key].config
+                                .channelTenantID,
+                            authKey:
+                           ubxCapture['enabledOfferings']['UBXWRTP'][key].config.ubxAuthKey
+                        };
+                    }
+                );
+            }
+            try {
+                google_ubx.googleToUBXAddToCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXCartPurchaseEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXCartPurchaseItemEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXFormErrorEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXPageViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductRatingEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductReviewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXProductViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXRemoveFromCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoCompletedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoLaunchedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoPausedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+                google_ubx.googleToUBXVideoPlayedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+            } catch (error) {
+                console.error(error); 
+            }
+
+            ga('set', 'dimension1', 'cw-506812115-OFkLU6sY'); //setting channel tennantid
+            
+            ibm_ubx.registerCallback("WRTP", function (eventPayload) {
+                if(eventPayload) {
+                    ubxEvents.push(eventPayload);
+                }
+            });
+        });
+</script>
+<!---------------------------End Step 3 ------------------------->
+  
+ 
+  
+<!---------------------MPA zone configuration - rendering-------->
+<!--12/2/19 - NEW RENDERING CODE FOR ONLINE ENGINE Personalization Library >= 1.2.0  per KC-->
+<!--https://www.ibm.com/support/knowledgecenter/en/SS6UHN/RealTimePersonalization/RTPGettingStarted/ZoneConfigurationMPA.html-->
+<!--Personalization Rendering Begin-->
+<script type="text/javascript">
+        function init() {
+            if (acoustic != undefined || acoustic != {}) { 
+             const personalizationObject = acoustic.personalization.JsWRTP.create();
+ 
+            function displayContent(contentId, domOutlet) {  
+                console.log('ContentId in HTML file:', contentId);
+                if (contentId == 'DCIDNF404') {
+                    //Add rendering logic code to display the default content
+                    domOutlet.innerHTML = "<p>Default content - not personalized!</p>";
+                    domOutlet.style.opacity = 1;
+                } else {  
+                    //Add rendering logic code to display the personalized content
+                    domOutlet.innerHTML = contentId;
+                    domOutlet.style.opacity = 1;
+                }
+            }
+            function processContent(zoneId, outletId) {
+                const outletArea = personalizationObject.getZoneArea(outletId);                                
+                let contentId    = personalizationObject.getContentId(zoneId);
+                displayContent(contentId, outletArea); 
+              }
+            personalizationObject.onReady(()=>{
+                //processContent("<<Zone ID>>", "<<outlet>>");
+                processContent("bliz95", "bliz95");
+                processContent("bliz75", "bliz75");
+                processContent("bliz55", "bliz55");
+                processContent("congrats95", "congrats95");
+                
+                //begin click tracking per KC: https://www.ibm.com/support/knowledgecenter/en/SS6UHN/RealTimePersonalization/RTPGettingStarted/CaptureClickEvents.html
+            	personalizationObject.trackEvent("bliz95","95","click");
+            	personalizationObject.trackEvent("bliz75","75","click");
+           	 	personalizationObject.trackEvent("bliz55","55","click");
+           		//End click tracking
+
+             });
+           
+           } else {
+          console.log("Error in loading the personalization library.");
+         }
+     }
+   window.onload = init;
+    </script>
+
+<!--Begin Product Recommendation Rendering-->
+<script>
+        let init = (function () {
+            if (acoustic != undefined || acoustic != {}) {
+                const WRTP = acoustic.personalization.JsWRTP.create();
+
+                const zoneId = "precrv";
+                WRTP.getRecommendedProducts(zoneId, 3)
+                    .then(RESPONSE => {
+
+                        let zoneArea = WRTP.getZoneArea(zoneId);
+                        if (zoneArea) {
+                            if (RESPONSE !== 'PRNF404' && RESPONSE !== undefined) {
+                                 // Rendering logic
+								var productListStr = JSON.stringify(RESPONSE);
+								zoneArea1.innerHTML = productListStr; //Display the product list JSON
+								zoneArea1.style.opacity = 1;
+								var productList = JSON.parse(productListStr); //Parse to JSON to get the individual products so that clicks can be tracked
+								for (i in productList.id) {
+									WRTP.trackProduct(productList[i].id, click); //track clicks on each recently viewed product
+								}
+                            } else {
+                                console.log('WRTP: Error in getting the recommendations.');
+                            }
+                        } else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.');
+                        }
+                    });
+
+            } else {
+                console.log("WRTP: Error in loading the online-engine library.");
+            }
+        });
+        window.onload = init;
+    </script>
+
+<!--End Product Recommendation Rendering-->
+
+
+<!---------------------End MPA zone configuration - rendering-------->
+
+<!--My Buttons-->
+<!---------Adding a button to simulate a GA event-------------------->
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>Check out the three models of the Ski-Doo Blizzard for 1980</h2>
+<p></p>
+<p></p>
+<p></p>
+<div>
+    <ul style="list-style: none;">
+        <li>
+            <button onclick="ibmproductView95()" id="blizzard">View A Blizzard 9500</button>
+            <button onclick="ibmproductView75()" id="blizzard">View A Blizzard 7500</button>
+            <button onclick="ibmproductView55()" id="blizzard">View A Blizzard 5500</button>
+            <!--<button value="Refresh Page" onclick="wcaproductView(); window.location.reload();" id="123">View A Product</button>-->
+        </li>
+        <p></p>
+        <!--<li>
+            <button id="456">Click Me</button> <!--this button simply sends a click event, not tied to ga event
+        </li>-->
+    </ul>
+</div>
+<!---------End Adding a button to simulate a GA event----------------->
+<!--End My Buttons-->
+
+    <table>
+      <tr>
+        <td>
+        <h2>Personalized Content - Product View - Blizzard 9500  <button id="95">I like the 9500</button><button onclick="ibmcartPurchase9500()">BUY IT NOW! - Cart Purchase Item Ski-Doo Blizzard 9500</button></h2>
+        <div id="bliz95">
+        <p>Bliz 95.  This should not display, either personalized or default content...which this is neither!</p>
+        </div>
+        <p></p>
+        <div id="congrats95">
+        <p>congrats95.  This should not display, either personalized or default content...which this is neither!</p>
+        </div>
+        <p></p>
+        <h2>Personalized Content - Product View - Blizzard 7500  <button id="75">I like the 7500</button></h2>        <p></p>
+        <div id="bliz75">
+        <p>Bliz 75.  This should not display, either personalized or default content...which this is neither!</p>
+        </div>
+        <p></p>
+        <h2>Personalized Content - Product View - Blizzard 5500  <button id="55">I like the 5500</button></h2>
+        <div id="bliz55">
+        <p>Bliz 55.  This should not display, either personalized or default content...which this is neither!</p>
+        </div>
+        <p></p>
+        <h2><p><a href="index.html">Click here to go home.</a></p></h2>
+        </td>
+      </tr>
+    </table>
+    
+    <p></p>
+	<div>
+        <h3>Recently Viewed Products</h3>
+        <div id="precrv" wrtp-recommended-zone="precrv">
+        <p>This should not show.</p>
+        </div>
+    </div>
+	<p></p>
+	<p></p>
+	<div>
+        <h3>View to View</h3>
+        <div id="precv2v" wrtp-recommended-zone="precv2v">
+        <!--<p>This should not show.</p>-->
+        </div>
+    </div>
+	<p></p>
+	<p></p>
+	<div>
+        <h3>View to Buy</h3>
+        <div id="precv2b" wrtp-recommended-zone="precv2b">
+        <p>This should not show.</p>
+        </div>
+    </div>
+	<p></p>
+    
+    
+    <!--<p><a href="index.html">Click here to go home.</a></p>-->
+    <!--<p><a href="gtm.html">Click here to go to my Sno Jet page.</a></p>-->
+    <!--<p><a href="adobe.html">Click here to go to my Viking page.</a></p>-->
+  </body>
+
+</html>

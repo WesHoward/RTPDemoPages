@@ -1,0 +1,94 @@
+<html>
+<head>
+
+<script>
+dataLayer = [{
+	"pageType": "product",
+	"product": {
+		"id": "001",
+		"name": "Thunderjet",
+		"brand": "SnoJet",
+		"price": "3199.99"
+		}
+	}];
+</script>
+
+	<!-- Google Tag Manager -->
+	<script>
+ (function (w, d, s, l, i) 
+  {
+    w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); 
+    var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+   })(window, document, 'script', 'dataLayer', 'GTM-NG6CNHP');
+</script>
+	<!-- End Google Tag Manager -->
+
+
+	<!--No More Flicker-->
+	<style>
+		#jet {
+			opacity: 0;
+		}
+	</style>
+	<!--END No More Flicker-->
+
+	<title>Snow Jet Page</title>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG6CNHP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<!--Begin Geo Positioning Code-->
+	<script>
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(success, error);
+		}
+
+		function success(position) {
+			window.geoposition = {};
+			geoposition.lat = position.coords.latitude;
+			geoposition.lon = position.coords.longitude;
+		}
+
+		function error() {
+			console.log('Can not get location');
+		}
+	</script>
+	<!--End Geo Positioning Code-->
+
+	
+	<h2>Personalized Content</h2>
+
+	<!--my generic button-->
+
+	<div>
+		<ul style="list-style: none;">
+			<li>
+				<!--<button id="but1">View A Product</button>-->
+				<button onclick="ibmproductViewJet()" id="but1">View A Thunderjet</button>
+			</li>
+		</ul>
+	</div>
+	<!--End my generic button-->
+	<p><b>Div jet</b></p>
+	<div id="jet">
+		<p>This is just some sample default text for "jet" div.  It will get replaced by GTM with Personalization content if the Zone rule is met.</p>
+	</div>
+	
+	
+	<p><b>Div sno</b></p>
+	<div id="sno">
+		<p>This is just some sample default text for "sno" div.  It will get replaced by GTM with Personalization content if the Zone rule is met.</p>
+	</div>
+
+	<div>
+		<a href="index.html">Back to index.</a><br>
+	</div>
+
+</body>
+</html>
